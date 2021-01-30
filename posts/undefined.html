@@ -1,0 +1,2229 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="js, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="description" content="来自于没有心机的coding">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>js | 似星辰大海</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script>
+        (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0777aa81.js","daovoice")
+        daovoice('init', {
+            app_id: "0777aa81",
+        });
+        daovoice('update');
+    </script>
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="似星辰大海" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">似星辰大海</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/movies">
+          
+          <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>电影</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/TAGS" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">似星辰大海</div>
+        <div class="logo-desc">
+            
+            来自于没有心机的coding
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-home"></i>
+			
+			首页
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/movies " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
+			      
+		          <span>电影</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/TAGS" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">js</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Typora/">
+                                <span class="chip bg-color">Typora</span>
+                            </a>
+                        
+                            <a href="/tags/Markdown/">
+                                <span class="chip bg-color">Markdown</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Markdown/" class="post-category">
+                                Markdown
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2020-12-07
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="js"><a href="#js" class="headerlink" title="js"></a>js</h1><h2 id="js的由来"><a href="#js的由来" class="headerlink" title="js的由来"></a>js的由来</h2><pre class=" language-md"><code class="language-md">JavaScript由网景公司的布兰登·艾奇开发出来的，一年后，微软又模仿JavaScript开发出了一种编程语言叫JScript,再后来，陆续又有别的商家推出JavaScript的不同实现语言。这就导致JavaScript的语法和特性日益混乱，其标准化问题被提上日程。最终由欧洲计算机制造商协会（ECMA）以JavaScript1.1为蓝本，制定了【ECMA-262】标准，并由此标准定义了一种新脚本语言ECMAScript。随后，ISO也采用ECMAScript作为标准，各浏览器厂商便纷纷开始将ECMAScript作为各自JavaScript实现的基础
+</code></pre>
+<h3 id="js的版本"><a href="#js的版本" class="headerlink" title="js的版本"></a>js的版本</h3><pre class=" language-md"><code class="language-md">1997年06月 :发布首版。
+
+1997年06月:修改规范完全符合ISO/IEC 16262国际标准。
+
+1998年6月，ECMAScript 2.0版发布。
+
+1999年12月，ECMAScript 3.0版发布，成为JavaScript的通行标准，得到了广泛支持。
+
+1999年12月:增加正则、更好的文字处理、新的控制语句、try/catch异常处理、更加明确的错误定义，数字输出格式等等。放弃发布。
+
+2007年10月，ECMAScript4.0版草案发布，对3.0版做了大幅升级，预计次年8月发布正式版本。草案发布后，由于4.0版的目标过于激进，各方对于是否通过这个标准，发生了严重分歧。以Yahoo、Microsoft、Google为首的大公司，反对JavaScript的大幅升级，主张小幅改动；以JavaScript创造者Brendan Eich为首的Mozilla公司，则坚持当前的草案。
+
+2008年7月，由于对于下一个版本应该包括哪些功能，各方分歧太大，争论过于激进，ECMA开会决定，中止ECMAScript 4.0的开发，将其中涉及现有功能改善的一小部分，发布为ECMAScript3.1，而将其他激进的设想扩大范围，放入以后的版本，由于会议的气氛，该版本的项目代号起名为Harmony（和谐）。会后不久，ECMAScript 3.1改名为ECMAScript 5。
+
+2009年12月:完善了ECMASript 3版本、增加"strict mode," (严格模式)、以及新的功能，如getter和setter、 JSON库支持和更完整的对象属性。ECMAScript 5.0版正式发布。Harmony项目则一分为二，一些较为可行的设想定名为JavaScript.next继续开发，后来演变成ECMAScript 6；一些不是很成熟的设想，则被视为JavaScript.next.next，在更远的将来再考虑推出。
+
+2011年06月:ECMAscript 5.1版发布，并且成为ISO国际标准（ISO/IEC 16262:2011）。
+
+2013年3月，ECMAScript 6草案冻结，不再添加新功能。新的功能设想将被放到ECMAScript 7。
+
+2013年12月，ECMAScript 6草案发布。
+
+2015年06月:第六版的名字有很多，可以叫ECMAScript6 (ES6) ，也可以叫ECMAScript 2015 (ES2015) 。
+
+2015年6月17日，ECMAScript 6发布正式版本，即ECMAScript 2015。
+
+2016年06月:也被称为ECMAScript 2016。完善ES6规范，还包括两个新的功能:求幂运算符(*) 和array.prototype.includes方法。
+
+2017年06月:增加新的功能，如并发、原子操作、Object.values/Object.entries、 字符串填充、promises、 await/asyn等等。
+</code></pre>
+<h2 id="js的数据类型"><a href="#js的数据类型" class="headerlink" title="js的数据类型"></a>js的数据类型</h2><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><ul>
+<li>String</li>
+<li>Number</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Boolean</li>
+</ul>
+<h3 id="引用数据类型"><a href="#引用数据类型" class="headerlink" title="引用数据类型"></a>引用数据类型</h3><ul>
+<li>Object</li>
+<li>Array</li>
+</ul>
+<h2 id="字符串的方法"><a href="#字符串的方法" class="headerlink" title="字符串的方法"></a>字符串的方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>indexOf</td>
+<td>返回字符串中检索指定字符第一次出现</td>
+</tr>
+<tr>
+<td>lastIndexOf</td>
+<td>返回字符串中检索指定字符最后一次出现</td>
+</tr>
+<tr>
+<td>subStr</td>
+<td>从起始位置截取指定数量</td>
+</tr>
+<tr>
+<td>subString</td>
+<td>从起始位置截取到结束位置</td>
+</tr>
+<tr>
+<td>slice</td>
+<td>提取字符串片段并在新的字符串返回被提取的部分</td>
+</tr>
+<tr>
+<td>split</td>
+<td>将字符串分割成数组</td>
+</tr>
+<tr>
+<td>replace</td>
+<td>替换与正则表达式匹配的字符串</td>
+</tr>
+<tr>
+<td>search</td>
+<td>检索与正则表达式相匹配的值</td>
+</tr>
+<tr>
+<td>concat</td>
+<td>连接多个字符串返回一个新的字符串</td>
+</tr>
+<tr>
+<td>charAt</td>
+<td>返回指定索引的字符</td>
+</tr>
+<tr>
+<td>charCodeAt</td>
+<td>返回指定索引位置字符的Unicode</td>
+</tr>
+<tr>
+<td>toLocaleLowerCase</td>
+<td>根据主机的语言环境把字符串转为小写</td>
+</tr>
+<tr>
+<td>toLocaleYpperCase</td>
+<td>根据主机语言环境把字符串转为大写</td>
+</tr>
+<tr>
+<td>toString</td>
+<td>返回字符串对象值</td>
+</tr>
+<tr>
+<td>trim</td>
+<td>一处字符串首尾空白</td>
+</tr>
+</tbody></table>
+<h3 id="es6新增字符串方法"><a href="#es6新增字符串方法" class="headerlink" title="es6新增字符串方法"></a>es6新增字符串方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>includes</td>
+<td>返回布尔值，表示是否找到了参数字符串</td>
+</tr>
+<tr>
+<td>startWith</td>
+<td>返回布尔值，表示参数字符串是否在原字符串的头部</td>
+</tr>
+<tr>
+<td>endsWith</td>
+<td>返回布尔值，表示参数字符串是否在原字符串的尾部</td>
+</tr>
+<tr>
+<td>repeat(n)</td>
+<td>返回新字符串，表示被重复n次</td>
+</tr>
+<tr>
+<td>padStart(n,str)</td>
+<td>补全头部长度为n，用str循环补充</td>
+</tr>
+<tr>
+<td>padEnd(n,str)</td>
+<td>不全尾部n下标之后，用str循环补充</td>
+</tr>
+<tr>
+<td>trimStart</td>
+<td>去除头部空格</td>
+</tr>
+<tr>
+<td>trimEnd</td>
+<td>去除尾部空格</td>
+</tr>
+<tr>
+<td>matchAll</td>
+<td>但会一个正则表达式在当前字符串的所有匹配</td>
+</tr>
+<tr>
+<td>replaceAll</td>
+<td>一次更换所有匹配，返回一个新的字符串</td>
+</tr>
+</tbody></table>
+<h2 id="数字的方法"><a href="#数字的方法" class="headerlink" title="数字的方法"></a>数字的方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number.parseFloat</td>
+<td>将字符串换成浮点数，和全局方法parseFloat作用一致</td>
+</tr>
+<tr>
+<td>Number.parseInt</td>
+<td>将字符串换成整数,和全局的方法parseInt作用一致</td>
+</tr>
+<tr>
+<td>Number.isFinite</td>
+<td>判断参数是否为有限数字</td>
+</tr>
+<tr>
+<td>Number.isInteger</td>
+<td>判断传递的参数是否为整数</td>
+</tr>
+<tr>
+<td>Number.isNaN</td>
+<td>判断传递的参数是否为非数字</td>
+</tr>
+<tr>
+<td>Number.ISsafeInteger</td>
+<td>判断传递的参数是否为安全整数</td>
+</tr>
+</tbody></table>
+<h2 id="数学的方法"><a href="#数学的方法" class="headerlink" title="数学的方法"></a>数学的方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>abs(x)</td>
+<td>返回数的绝对值</td>
+</tr>
+<tr>
+<td>acos(x)</td>
+<td>返回数的反余弦值</td>
+</tr>
+<tr>
+<td>ceil(x)</td>
+<td>向上取整</td>
+</tr>
+<tr>
+<td>floor(x)</td>
+<td>向下取整</td>
+</tr>
+<tr>
+<td>log(x)</td>
+<td>返回数的自然对数</td>
+</tr>
+<tr>
+<td>max(x,y)</td>
+<td>返回xy的最高值</td>
+</tr>
+<tr>
+<td>min(x,y)</td>
+<td>返回x和y的最低值</td>
+</tr>
+<tr>
+<td>pow(x,y)</td>
+<td>返回x的y次幂</td>
+</tr>
+<tr>
+<td>random</td>
+<td>返回0~1的随机数</td>
+</tr>
+<tr>
+<td>roud(x)</td>
+<td>四舍五入</td>
+</tr>
+</tbody></table>
+<h3 id="es6数学增加的方法"><a href="#es6数学增加的方法" class="headerlink" title="es6数学增加的方法"></a>es6数学增加的方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>trunc(x)</td>
+<td>去除小数部分，返回整数部分</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>判断一个属到底是正数，复数，还是零</td>
+</tr>
+<tr>
+<td>cbrt</td>
+<td>计算一个数的立方根</td>
+</tr>
+<tr>
+<td>clz32</td>
+<td>将参数转为32位无符号整数，饭后返回这个32到位里面多少个0</td>
+</tr>
+<tr>
+<td>imul</td>
+<td>返回两个数以32位带符号整数相乘形式相乘的结过，返回一个32为带符号整数</td>
+</tr>
+<tr>
+<td>fround</td>
+<td>返回一个数的32位单精度浮点数形式</td>
+</tr>
+<tr>
+<td>hypot</td>
+<td>返回所有参数的平方和的平方根</td>
+</tr>
+</tbody></table>
+<h2 id="日期方法"><a href="#日期方法" class="headerlink" title="日期方法"></a>日期方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getFullYear</td>
+<td>获取年份</td>
+</tr>
+<tr>
+<td>getTime</td>
+<td>返回至今的毫秒数</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>返回当日的日和时间</td>
+</tr>
+<tr>
+<td>getDate</td>
+<td>获取本月某一天</td>
+</tr>
+<tr>
+<td>getDay</td>
+<td>返回星期几0~6</td>
+</tr>
+<tr>
+<td>getMonth</td>
+<td>返回月份0~11</td>
+</tr>
+<tr>
+<td>getHours</td>
+<td>返回小时0~23</td>
+</tr>
+<tr>
+<td>getMinutes</td>
+<td>返回分钟0~59</td>
+</tr>
+<tr>
+<td>getSeconds</td>
+<td>返回秒数</td>
+</tr>
+<tr>
+<td>getMilliseconds</td>
+<td>返回毫秒</td>
+</tr>
+<tr>
+<td>getTimezoneOffset</td>
+<td>返回本地时间与格伦分钟差</td>
+</tr>
+<tr>
+<td>setDate</td>
+<td>设置对象某一天</td>
+</tr>
+<tr>
+<td>setMonth</td>
+<td>设置某一月份</td>
+</tr>
+<tr>
+<td>setFullYear</td>
+<td>设置年份(四位数)</td>
+</tr>
+<tr>
+<td>setTime</td>
+<td>以毫秒设置Date对象</td>
+</tr>
+<tr>
+<td>toString</td>
+<td>把Date对象转为字符串</td>
+</tr>
+<tr>
+<td>toTimeString</td>
+<td>把Date对象的时间部分转换为字符串</td>
+</tr>
+<tr>
+<td>toDateString</td>
+<td>把Date都西昂的日期部分转为字符串</td>
+</tr>
+<tr>
+<td>toLocaleString</td>
+<td>根据本地时间格式，转换为字符串</td>
+</tr>
+<tr>
+<td>toLocaleTimeString</td>
+<td>根据本地时间格式，把Date对象的时间部分转为字符串</td>
+</tr>
+<tr>
+<td>toLocaleDateString</td>
+<td>根据本地格式，把Date对象的日期部分转为字符串</td>
+</tr>
+</tbody></table>
+<h2 id="数组的方法"><a href="#数组的方法" class="headerlink" title="数组的方法"></a>数组的方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>concat()</td>
+<td>链接两个过着更多的数组，并返回结果</td>
+</tr>
+<tr>
+<td>join(x)</td>
+<td>将数组以x分隔符分割为字符串</td>
+</tr>
+<tr>
+<td>pop()</td>
+<td>删除并且返回数组的最后一个元素</td>
+</tr>
+<tr>
+<td>push()</td>
+<td>数组末尾添加元素</td>
+</tr>
+<tr>
+<td>reverse()</td>
+<td>点到数组中元素的顺序</td>
+</tr>
+<tr>
+<td>shift()</td>
+<td>删除并返回数组的第一个元素</td>
+</tr>
+<tr>
+<td>slice()</td>
+<td>对某个已有的数组返回选定的元素</td>
+</tr>
+<tr>
+<td>sort()</td>
+<td>对元素进行排序</td>
+</tr>
+<tr>
+<td>splice()</td>
+<td>删除元素，并向数组添加新元素</td>
+</tr>
+<tr>
+<td>toSource()</td>
+<td>返回该对象的源代码</td>
+</tr>
+<tr>
+<td>toString()</td>
+<td>把数组转换为字符串，并返回结果</td>
+</tr>
+<tr>
+<td>toLocaleSting()</td>
+<td>把数组转换为贝蒂数组，并返回结果</td>
+</tr>
+<tr>
+<td>unshift</td>
+<td>在数组开头添加一个或者更多元素，返回新的数组</td>
+</tr>
+<tr>
+<td>indexOf</td>
+<td>查找数据在数组中是否存在，返回下标</td>
+</tr>
+</tbody></table>
+<h3 id="es6数组新增方法"><a href="#es6数组新增方法" class="headerlink" title="es6数组新增方法"></a>es6数组新增方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>…</td>
+<td>运算府</td>
+</tr>
+<tr>
+<td>apply</td>
+<td>将数组转换为函数的参数</td>
+</tr>
+<tr>
+<td>form</td>
+<td>将类数组转换为真正的数组</td>
+</tr>
+<tr>
+<td>of</td>
+<td>用于将一组值转换为数组</td>
+</tr>
+<tr>
+<td>copyWithin</td>
+<td>数组实例的方法，将指定位置成员复制到其他位置，会覆盖原有成员，然后返回当前数组</td>
+</tr>
+<tr>
+<td>find</td>
+<td>找出第一个符合条件的数组成员</td>
+</tr>
+<tr>
+<td>findIndex</td>
+<td>找出第一个符合条件的数组成员返回下标</td>
+</tr>
+<tr>
+<td>entries</td>
+<td>返回下标和数据</td>
+</tr>
+<tr>
+<td>keys</td>
+<td>返回下标</td>
+</tr>
+<tr>
+<td>values</td>
+<td>返回数据</td>
+</tr>
+<tr>
+<td>includes</td>
+<td>返回一个布尔值，表示某个数组是否包含给定的值</td>
+</tr>
+<tr>
+<td>flat()</td>
+<td>降维，只降低一维</td>
+</tr>
+<tr>
+<td>flatMap()</td>
+<td>对每个原数组成员执行一个函数</td>
+</tr>
+<tr>
+<td>forEach</td>
+<td>数组遍历</td>
+</tr>
+<tr>
+<td>filter</td>
+<td>过滤数组</td>
+</tr>
+<tr>
+<td>every</td>
+<td>一假为假，全真为真</td>
+</tr>
+<tr>
+<td>reduce</td>
+<td>求和等</td>
+</tr>
+<tr>
+<td>some</td>
+<td>全假为假，一真为真</td>
+</tr>
+<tr>
+<td>map</td>
+<td>遍历返回新数组</td>
+</tr>
+</tbody></table>
+<h2 id="正则的方法"><a href="#正则的方法" class="headerlink" title="正则的方法"></a>正则的方法</h2><h3 id="RegExp-对象方法"><a href="#RegExp-对象方法" class="headerlink" title="RegExp 对象方法"></a>RegExp 对象方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>compile</td>
+<td>编译正则表达式</td>
+</tr>
+<tr>
+<td>exec</td>
+<td>检索字符串中指定的值，返回找到的值，并确认其位置</td>
+</tr>
+<tr>
+<td>test</td>
+<td>检索字符串中指定的值。返回true或false</td>
+</tr>
+</tbody></table>
+<h3 id="支持正则表达式String的方法"><a href="#支持正则表达式String的方法" class="headerlink" title="支持正则表达式String的方法"></a>支持正则表达式String的方法</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>search</td>
+<td>检索与正则表达式相匹配的值</td>
+</tr>
+<tr>
+<td>match</td>
+<td>找到一个或者多个正则表达式的匹配</td>
+</tr>
+<tr>
+<td>replace</td>
+<td>替换与正则表达式匹配的字符串</td>
+</tr>
+</tbody></table>
+<h2 id="事件对象"><a href="#事件对象" class="headerlink" title="事件对象"></a>事件对象</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>onabort</td>
+<td>图像加载被中断</td>
+</tr>
+<tr>
+<td>onblur</td>
+<td>元素失去焦点</td>
+</tr>
+<tr>
+<td>onchange</td>
+<td>用户改变域的内容</td>
+</tr>
+<tr>
+<td>onclick</td>
+<td>鼠标点击某个对象</td>
+</tr>
+<tr>
+<td>ondbclick</td>
+<td>鼠标双击</td>
+</tr>
+<tr>
+<td>onerror</td>
+<td>加载文档或图像发生某个错误</td>
+</tr>
+<tr>
+<td>onfocus</td>
+<td>元素获得焦点</td>
+</tr>
+<tr>
+<td>onkeydown</td>
+<td>某个键盘的键被按下</td>
+</tr>
+<tr>
+<td>onkeypress</td>
+<td>某个键盘的键被按下或按住</td>
+</tr>
+<tr>
+<td>onkeyup</td>
+<td>某个键盘的键被松开</td>
+</tr>
+<tr>
+<td>onload</td>
+<td>某个页面或图像被完成加载</td>
+</tr>
+<tr>
+<td>onmousedown</td>
+<td>某个鼠标按键被按下</td>
+</tr>
+<tr>
+<td>onmousemove</td>
+<td>鼠标被移动</td>
+</tr>
+<tr>
+<td>onmouseout</td>
+<td>鼠标从某元素离开</td>
+</tr>
+<tr>
+<td>onmouseover</td>
+<td>鼠标被移动到某元素之上</td>
+</tr>
+<tr>
+<td>onmouseup</td>
+<td>鼠标案件被松开</td>
+</tr>
+<tr>
+<td>onreset</td>
+<td>重置按钮被点击</td>
+</tr>
+<tr>
+<td>onresize</td>
+<td>窗口或框架被调整尺寸</td>
+</tr>
+<tr>
+<td>onselect</td>
+<td>文本被选定</td>
+</tr>
+<tr>
+<td>onsubmit</td>
+<td>提交按钮被点击</td>
+</tr>
+<tr>
+<td>onunload</td>
+<td>用户退出页面</td>
+</tr>
+</tbody></table>
+<h2 id="对象的所有方法"><a href="#对象的所有方法" class="headerlink" title="对象的所有方法"></a>对象的所有方法</h2><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.assign()</td>
+<td>将所有可枚举的自身属性的值从一个或多个源对象复制到目标对象</td>
+</tr>
+<tr>
+<td>.create()</td>
+<td>用于指定的原型对象和属性创建一个新对象</td>
+</tr>
+<tr>
+<td>.defineProperty()</td>
+<td>将给定描述符描述的命名属性添加到对象</td>
+</tr>
+<tr>
+<td>.defineProperties()</td>
+<td>将给定描述符描述的命名属性添加到对象</td>
+</tr>
+<tr>
+<td>.entries()</td>
+<td>返回一个包含[key,value]给定对象自己的可枚举字符串属性的所有对的数组</td>
+</tr>
+<tr>
+<td>.freeze()</td>
+<td>冻结对象，其他代码无法删除或更改其属性</td>
+</tr>
+<tr>
+<td>.formEntries()</td>
+<td>从可迭代的[key,value]返回一个新的对象</td>
+</tr>
+<tr>
+<td>.getOwnPropertyDescriptor()</td>
+<td>返回对象的命名属性描述符</td>
+</tr>
+<tr>
+<td>getOwnPropertyNames()</td>
+<td>返回一个数组，其中包含给定对象自己的所有可枚举和不可枚举属性的名称</td>
+</tr>
+<tr>
+<td>getOwnPropertySymbols()</td>
+<td>返回直接在给定对象上找到所有符号属性的数组</td>
+</tr>
+<tr>
+<td>.is()</td>
+<td>比较两个值是否相同</td>
+</tr>
+<tr>
+<td>.isExtensible()</td>
+<td>确定是否允许扩展对象</td>
+</tr>
+<tr>
+<td>.isFrozen()</td>
+<td>确定对象是否被冻结</td>
+</tr>
+<tr>
+<td>.isSealed()</td>
+<td>确定对象是否密封</td>
+</tr>
+<tr>
+<td>.keys()</td>
+<td>返回一个数组，包含给定对象所有可枚举字符串类型的名称</td>
+</tr>
+<tr>
+<td>.preventExtensions()</td>
+<td>防止其他代码删除对象的属性</td>
+</tr>
+<tr>
+<td>.seal()</td>
+<td>防止其他代码删除对象的属性</td>
+</tr>
+<tr>
+<td>.setPrototypeOf()</td>
+<td>设置对象的原型</td>
+</tr>
+<tr>
+<td>.values</td>
+<td>返回一个数组，该数组包含给定对象自己所有可枚举字符串对应的值</td>
+</tr>
+</tbody></table>
+<h2 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h2><pre class=" language-md"><code class="language-md">Symbol 值通过Symbol函数生成。这就是说，对象的属性名现在可以有两种类型，一种是原来就有的字符串，另一种就是新增的 Symbol 类型。凡是属性名属于 Symbol 类型，就都是独一无二的，可以保证不会与其他属性名产生冲突
+</code></pre>
+<h2 id="Set和Map"><a href="#Set和Map" class="headerlink" title="Set和Map"></a>Set和Map</h2><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><pre class=" language-md"><code class="language-md">ES6提供了新的数据结构Set。他类似于数组，但是成员的值都是唯一的，没有重复的值
+</code></pre>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><pre class=" language-md"><code class="language-md">JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。这给它的使用带来了很大的限制，而Map的key值可以是任意属性
+</code></pre>
+<h2 id="Proxy"><a href="#Proxy" class="headerlink" title="Proxy"></a>Proxy</h2><pre class=" language-md"><code class="language-md">Proxy 用于修改某些操作的默认行为，等同于在语言层面做出修改，所以属于一种“元编程”（meta programming），即对编程语言进行编程。
+
+Proxy 可以理解成，在目标对象之前架设一层“拦截”，外界对该对象的访问，都必须先通过这层拦截，因此提供了一种机制，可以对外界的访问进行过滤和改写。Proxy 这个词的原意是代理，用在这里表示由它来“代理”某些操作，可以译为“代理器”。
+</code></pre>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>用于将异步代码同步化</p>
+<pre class=" language-md"><code class="language-md">Promise有三种状态，pending（进行中）、fulfilled（操作已成功）、rejected（操作已失败）
+一旦状态改变，就不会再改变
+</code></pre>
+<ul>
+<li>.then 调用成功状态的回调函数</li>
+<li>.catch 调用错误状态的回调函数</li>
+<li>.finally 无论状态如何都会执行的操作</li>
+<li>.all()接受一个可迭代对象，等待多个同步或者异步任务执行完毕</li>
+<li>.race()接收一个可迭代对象，返回最先返回结果的</li>
+<li>.any()接收一个可迭代对象，只要有一个promise成功就返回成功的promise</li>
+</ul>
+<h2 id="如何过去元素和视口的距离"><a href="#如何过去元素和视口的距离" class="headerlink" title="如何过去元素和视口的距离"></a>如何过去元素和视口的距离</h2><p>getBoundingClientRect返回一个对象，是一组矩形的集合，返回的值主要是left、top、bottom、right、width、height、x、y。<br>left是元素左边框距离视图左侧的距离<br>right—————<br>top是元素上边框距离视图顶部的距离<br>bottom————-<br>width 元素宽度<br>height 元素高度<br>x 元素的x轴<br>y 元素的y轴</p>
+<h2 id="介绍一下webpack"><a href="#介绍一下webpack" class="headerlink" title="介绍一下webpack"></a>介绍一下webpack</h2><p>webpack是一个前端模块化打包工具，主要由入口，出口，loader，pluguns四个部分，前端的打包工具还有一个gulp，不过gulp重于前端开发的过程，而webpack侧重于模块，例如他会将css文件看作一个模块，通过css-loader将css打包成符合css的静态资源</p>
+<h2 id="es6箭头函数和普通函数的区别"><a href="#es6箭头函数和普通函数的区别" class="headerlink" title="es6箭头函数和普通函数的区别"></a>es6箭头函数和普通函数的区别</h2><p>普通function的声明在变量提升中是最高的，箭头函数没有函数提升<br>箭头函数没有arguments<br>箭头函数不能作为构造函数，不能被new，没有property<br>call和apply方法只有参数，没有作用域</p>
+<h2 id="什么是闭包，闭包有什么危害，如何解决闭包带来的危害"><a href="#什么是闭包，闭包有什么危害，如何解决闭包带来的危害" class="headerlink" title="什么是闭包，闭包有什么危害，如何解决闭包带来的危害"></a>什么是闭包，闭包有什么危害，如何解决闭包带来的危害</h2><p>简单来说，闭包就是定义在函数内部的函数，因为js中存在作用域的问题，所以在函数内部定义的变量在函数外部是没有办法直接获取到，而闭包就是沟通函数内部和外部的桥梁，这样在函数外部直接可以得到函数内部的值，并且闭包可以实现函数属性和方法的私有化</p>
+<h2 id="闭包的危害"><a href="#闭包的危害" class="headerlink" title="闭包的危害"></a>闭包的危害</h2><p>因为闭包会将内部变量存储在内存中，如果长时间不清除的话会造成内存泄漏的问题，影响程序的性能<br>解决方法：对于不使用的变量及时的清除</p>
+<h2 id="不使用第三个变量交换值"><a href="#不使用第三个变量交换值" class="headerlink" title="不使用第三个变量交换值"></a>不使用第三个变量交换值</h2><pre class=" language-js"><code class="language-js">a<span class="token operator">=</span><span class="token number">1</span> b<span class="token operator">=</span><span class="token number">2</span>
+a <span class="token operator">=</span> a<span class="token operator">+</span>b <span class="token comment" spellcheck="true">//a=3</span>
+b <span class="token operator">=</span> a<span class="token operator">-</span>b <span class="token comment" spellcheck="true">//b=1</span>
+a <span class="token operator">=</span> a<span class="token operator">-</span>b <span class="token comment" spellcheck="true">//a=2</span>
+</code></pre>
+<h2 id="prototype和-proto-和constructor"><a href="#prototype和-proto-和constructor" class="headerlink" title="prototype和__proto__和constructor"></a>prototype和__proto__和constructor</h2><p>什么是构造函数？<br>答：通过关键字new创建的函数叫做构造函数，用来创建一个对象<br>什么是原型prototype？<br>答：每一个函数都有一个prototype属性，这个属性指向一个对象，简称原型<br>原型有什么作用？<br>节约内存、扩展属性和方法、实现类的继承<br>__proto__是什么？<br>每一个对象都有一个__proto__属性，指向创建自己的哪个构造函数的原型<br>对象可以直接访问自己__proto__里面的属性和方法<br>constructor指向创建自己那个构造函数。<br>三者关系：<br>当我们创建一个构造函数的时候这个构造函数自带了一个prototype属性，而这个属性指向一个对象，也就是原型对象。这个原型对象里面有一个constructor构造器，它的作用是指向创建自己的构造函数。除此之外prototype还可以存放公共的属性和方法。当我们实例化一个对象的时候，这个对象自带了一个__proto__属性，这个__proto__指向创建自己的构造函数的原型对象</p>
+<h2 id="eventLoop"><a href="#eventLoop" class="headerlink" title="eventLoop"></a>eventLoop</h2><p>event loop是一个执行模型，在不同的地方有不同的实现.浏览器和nodejs基于不同的技术实现了各自的event loop。<br>浏览器的event loop具体的js代码具体流程：</p>
+<ol>
+<li>执行全局js同步代码，这些同步代码有一些式同步语句，有一些是异步语句</li>
+<li>先执行全局的同步代码，遇到异步语句会区分是微任务（microtask）还是宏任务（macrotask），并分别放入微队列和宏队列</li>
+<li>待同步代码执行完毕，stack调用栈会清空</li>
+<li>从微队列取出队首的任务，放入调用栈stack执行，微队列长度减一</li>
+<li>继续取出队首的位置，放入stack调用栈中执行，直到把所有微任务执行完毕，此时微任务队列被清空，调用栈也为空</li>
+<li>取出宏队列中位于首位的任务，放入stack中执行</li>
+<li>执行完毕后，调用栈为空</li>
+<li>重复3-7个步骤直到加载完毕</li>
+</ol>
+<h2 id="window-requestAnimationFrame是什么"><a href="#window-requestAnimationFrame是什么" class="headerlink" title="window.requestAnimationFrame是什么"></a>window.requestAnimationFrame是什么</h2><p>告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行<br>语法：window.requestAnimationFrame(callback);<br>callback<br>下一次重绘之前更新动画帧所调用的函数(即上面所说的回调函数)。该回调函数会被传入DOMHighResTimeStamp参数，该参数与performance.now()的返回值相同，它表示requestAnimationFrame() 开始去执行回调函数的时刻。<br>返回值<br>一个 long 整数，请求 ID ，是回调列表中唯一的标识。是个非零值，没别的意义。你可以传这个值给 window.cancelAnimationFrame() 以取消回调函数。</p>
+<h2 id="new之后干了什么"><a href="#new之后干了什么" class="headerlink" title="new之后干了什么"></a>new之后干了什么</h2><ol>
+<li>创建一个空对象，空对象的__proto__去继承构造函数的prototype</li>
+<li>属性和方法被加入到this引用对象中</li>
+<li>新创建的对象由this所引用，最后隐式返回this</li>
+</ol>
+<h2 id="bind、call、apply区别"><a href="#bind、call、apply区别" class="headerlink" title="bind、call、apply区别"></a>bind、call、apply区别</h2><p>首先三者都是用来改变this指向的，他们的第一个参数都是this要指向的对象，如果有null或者<br>undefined则指向window，他们都可以传参，apply接收一个数组，call和bind接收参数列表，<br>而且bind咳哟分多次传入，bind返回一个绑定this之后的函数，而apply和call时立即执行</p>
+<h2 id="git的使用"><a href="#git的使用" class="headerlink" title="git的使用"></a>git的使用</h2><p>git分布式管理工具下载完可以离线操作  svn是集中式管理工具必须在线操作</p>
+<h2 id="请求和响应报文"><a href="#请求和响应报文" class="headerlink" title="请求和响应报文"></a>请求和响应报文</h2><ul>
+<li>请求报文：请求行、请求头部、空行、请求数据</li>
+<li>响应报文：响应行、响应头、空行、响应体</li>
+</ul>
+<h2 id="用什么管理软件生命周期-spasvo-ALM-管理"><a href="#用什么管理软件生命周期-spasvo-ALM-管理" class="headerlink" title="用什么管理软件生命周期   spasvo  ALM 管理"></a>用什么管理软件生命周期   spasvo  ALM 管理</h2><ol>
+<li><p>可行性研究阶段&nbsp; （定义期）</p>
+</li>
+<li><p>需求分析阶段</p>
+</li>
+<li><p>概要设计阶段&nbsp; &nbsp; &nbsp;（开发期）</p>
+</li>
+<li><p>详细设计阶段</p>
+</li>
+<li><p>开发实现阶段</p>
+</li>
+<li><p>测试阶段</p>
+</li>
+<li><p>部署阶段&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; （部署期）</p>
+</li>
+<li><p>维护阶段</p>
+</li>
+</ol>
+<h2 id="作用域和作用域链"><a href="#作用域和作用域链" class="headerlink" title="作用域和作用域链"></a>作用域和作用域链</h2><p>全局作用域：在任何地方都能被访问，window对象下的内置属性都是全局作用域</p>
+<p>函数作用域：固定代码片段中<br>作用域链：作用域都有上下级关系，上下级关系确定函数在哪个作用域下创建，变量取值都会在当前作用域中查找，如果没有查到就会像上级作用域查找，直到查到全局作用域，这个查找的过程叫做作用域链</p>
+<h2 id="原型和原型链"><a href="#原型和原型链" class="headerlink" title="原型和原型链"></a>原型和原型链</h2><p>先说实例、构造函数和原型对象之间的关系<br>实例在调用方法时，如果在本身没有找到，就会在原型对象上查找，如果也没有找到，就会再向上一级原型对象查找，一直找到Object.prototype ；如果中间找到会停止查找返回该方法。如果一直没找到会返回未定义；</p>
+<h2 id="浏览器输入url到页面加载发生了什么"><a href="#浏览器输入url到页面加载发生了什么" class="headerlink" title="浏览器输入url到页面加载发生了什么"></a>浏览器输入url到页面加载发生了什么</h2><p>浏览器的地址栏输入URL并按下回车。<br>浏览器查找当前URL是否存在缓存，并比较缓存是否过期。<br>DNS解析URL对应的IP。根据IP建立TCP连接（三次握手）。<br>HTTP发起请求。服务器处理请求，浏览器接收HTTP响应。<br>渲染页面，构建DOM树。<br>关闭TCP连接（四次挥手）</p>
+<h2 id="移动端适配"><a href="#移动端适配" class="headerlink" title="移动端适配"></a>移动端适配</h2><ol>
+<li>百分比方案：使用百分比定义宽度高度，根据可视区域实时尺寸进行调整，尽可能适应各种分辨率，通常使用max-width/min-width控制尺寸范围过大或者过小；</li>
+<li>rem ：rem根据根元素html的font-size计算值的倍数，根据屏幕宽度动态设置html标签的font-size，在布局的时候使用rem单位布局，达到自适应布局</li>
+<li>vh/vw方案 ： 1vw = 视口宽度的1%，通过css预处理器把设计稿转换为vw单位，包括文本，布局，间距等。</li>
+</ol>
+<h2 id="树形结构"><a href="#树形结构" class="headerlink" title="树形结构"></a>树形结构</h2><p>经典数据结构中的各种树状图是一种典型的树形结构：一颗树可以简单的表示为根， 左子树， 右子树。 左子树和右子树又有自己的子树</p>
+<p>无序树(Unordered Tree)：树中任意一个结点的各孩子结点之间的次序构成无关紧要的树。通常树指无序树。 [1]<br>有序树(Ordered Tree)：树中任意一个结点的各孩子结点有严格排列次序的树。二叉树是有序树，因为二叉树中每个孩子结点都确切定义为是该结点的左孩子结点还是右孩子结点。 [1]<br>森林(Forest)：m(m≥0)棵树的集合。自然界中的树和森林的概念差别很大，但在数据结构中树和森林的概念差别很小。从定义可知，一棵树有根结点和m个子树构成，若把树的根结点删除，则树变成了包含m棵树的森林。当然，根据定义，一棵树也可以称为森林。 [1]</p>
+<p>二叉树</p>
+<p>1）每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。<br>2）左子树和右子树是有顺序的，次序不能任意颠倒。<br>3）即使树中某结点只有一棵子树，也要区分它是左子树还是右子树</p>
+<h2 id="什么是js的this"><a href="#什么是js的this" class="headerlink" title="什么是js的this"></a>什么是js的this</h2><p>执行上下文，this一般存在于函数中，表示当前函数的执行上下文， 如果函数没有执行，那么this没有内容，只有函数在执行后this才有绑定。</p>
+<h2 id="js执行上下文"><a href="#js执行上下文" class="headerlink" title="js执行上下文"></a>js执行上下文</h2><h2 id="js设计模式"><a href="#js设计模式" class="headerlink" title="js设计模式"></a>js设计模式</h2><p>一、单例模式</p>
+<p>二、策略模式</p>
+<p>三、代理模式</p>
+<p>四、迭代器模式</p>
+<p>五、发布—订阅模式</p>
+<p>六、命令模式</p>
+<p>七、组合模式</p>
+<p>八、模板方法模式</p>
+<p>九、享元模式</p>
+<p>十、职责链模式</p>
+<p>十一、中介者模式</p>
+<p>十二、装饰者模式</p>
+<p>十三、状态模式</p>
+<p>十四、适配器模式</p>
+<p>十五、外观模式</p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>树是数据结构中的重中之重，尤其以各类二叉树为学习的难点。一直以来，对于树的掌握都是模棱两可的状态，现在希望通过写一个关于二叉树的专题系列。在学习与总结的同时更加深入的了解掌握二叉树。本系列文章将着重介绍一般二叉树、完全二叉树、满二叉树、线索二叉树、霍夫曼树、二叉排序树、平衡二叉树、红黑树、B树。希望各位读者能够关注专题，并给出相应意见，通过系列的学习做到心中有“树”<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cangqinglang/p/11304619.html">https://www.cnblogs.com/cangqinglang/p/11304619.html</a></p>
+<p>二叉树特点<br>由二叉树定义以及图示分析得出二叉树有以下特点：<br>1）每个结点最多有两颗子树，所以二叉树中不存在度大于2的结点。<br>2）左子树和右子树是有顺序的，次序不能任意颠倒。<br>3）即使树中某结点只有一棵子树，也要区分它是左子树还是右子树</p>
+<p>前序遍历通俗的说就是从二叉树的根结点出发，当第一次到达结点时就输出结点数据，按照先向左在向右的方向访问。<br>中序遍历就是从二叉树的根结点出发，当第二次到达结点时就输出结点数据，按照先向左在向右的方向访问。<br>后序遍历就是从二叉树的根结点出发，当第三次到达结点时就输出结点数据，按照先向左在向右的方向访问。<br>层序遍历就是按照树的层次自上而下的遍历二叉树</p>
+<h2 id="深度优先遍历和广度优先遍历"><a href="#深度优先遍历和广度优先遍历" class="headerlink" title="深度优先遍历和广度优先遍历"></a>深度优先遍历和广度优先遍历</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a2217018103/article/details/90678830?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160601382919725255508668%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=160601382919725255508668&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-90678830.first_rank_ecpm_v3_pc_rank_v2&amp;utm_term=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86&amp;spm=1018.2118.3001.4449">https://blog.csdn.net/a2217018103/article/details/90678830?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522160601382919725255508668%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=160601382919725255508668&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-1-90678830.first_rank_ecpm_v3_pc_rank_v2&amp;utm_term=%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86%E5%92%8C%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86&amp;spm=1018.2118.3001.4449</a></p>
+<h2 id="对url进行转码和解码"><a href="#对url进行转码和解码" class="headerlink" title="对url进行转码和解码"></a>对url进行转码和解码</h2><ol>
+<li>escape和unescape</li>
+<li>encodeURL和decodeURL</li>
+<li>encodeURLComponent和decodeURLComponent</li>
+</ol>
+<h2 id="http-https-的区别"><a href="#http-https-的区别" class="headerlink" title="http https 的区别"></a>http https 的区别</h2><p>   1、https协议需要到ca申请证书，一般免费证书较少，因而需要一定费用。<br>　　2、http是超文本传输协议，信息是明文传输，https则是具有安全性的ssl加密传输协议。<br>　　3、http和https使用的是完全不同的连接方式，用的端口也不一样，前者是80，后者是443。<br>　　4、http的连接很简单，是无状态的；HTTPS协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议，比http协议安全。</p>
+<h2 id="JSON-stringify-parse实现深拷贝"><a href="#JSON-stringify-parse实现深拷贝" class="headerlink" title="JSON.stringify/parse实现深拷贝"></a>JSON.stringify/parse实现深拷贝</h2><ol>
+<li>如果对象中有function，则拷贝之后的对象丢失这个function</li>
+<li>如果拷贝对象中的某个属性的值为undefined，则拷贝之后该属性丢失</li>
+<li>如果被拷贝的对象有正则表达式或者error对象，则拷贝之后的对象正则表达式会变成object</li>
+<li>如果有时间对象，将只是字符串的形式</li>
+<li>如果有NaN/infinity则序列化的结果会变成null</li>
+<li>如果对象是由构造函数生成的，则会丢失对象的constructor</li>
+</ol>
+<h2 id="链表和数组的区别"><a href="#链表和数组的区别" class="headerlink" title="链表和数组的区别"></a>链表和数组的区别</h2><p>数组静态分配内存，链表动态分配内存，数组在内存中连续，链表不连续，数组使用下标定位，时间复杂度为O（1），链表定位元素时间复杂度O（n）；数组插入或删除元素的时间复杂度为O（n），链表的时间复杂度为O（1）；</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">huangchao</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://hc135985.github.io/posts/undefined.html">http://hc135985.github.io/posts/undefined.html</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">huangchao</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Typora/">
+                                    <span class="chip bg-color">Typora</span>
+                                </a>
+                            
+                                <a href="/tags/Markdown/">
+                                    <span class="chip bg-color">Markdown</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/reward/alipay.png" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'kATQxjtb26k0VswgK8sKELnQ-gzGzoHsz',
+        appKey: 'yNeUFSt0t5Smfxz56EAtdCYi',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/posts/undefined.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/21.jpg" class="responsive-img" alt="vue3">
+                        
+                        <span class="card-title">vue3</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-12-07
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category">
+                                    Markdown
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/posts/undefined.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAMAAABOo35HAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAC9UExURVlZWdPT07KysmRkZIWFhfT09JmZmWZmZm9vb39/fxkZGUxMTDMzM3p6epCQkKamppubm729venp6cjIyN7e3tbW1s/Pz8LCwnx8fLS0tFZWVoiIiI+Pj6GhoeTk5Glpabu7u93d3evr66CgoJSUlKqqqsnJyeDg4Hd3d8PDw+Xl5bi4uNHR0dvb26Ojo6urq+fn51hYWDg4OCgoKHBwcK2traenp0FBQe7u7vHx8U5OTre3t8zMzHV1df///7GrnpQAAAA/dFJOU///////////////////////////////////////////////////////////////////////////////////AI4mfBcAAAUGSURBVHja7NoJb6M4GMZxY0NCD64kve/pMZ2d3Z297+X7f6zFNmBAMUXa6URl/q9UJSWPUPzrizFWRUlNLgEBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYYIEFAVhggQUWWGBBABZYYIEFFlgQgAUWWGCBBRYEYIEFFlhggQUBWGCBBRZYYEEAFlhggQUWWBCABRZYYIEFFgRggQUWWGCBBQFYYIEFFlhgQQAWWGCBBRZYEIAFFlhggQUWBGCBBRZYn6cCIcRXgvX/h9qcIVBqDdbEM8RCxGCB9QqXYRwHYDHBgwXWl8eKZKiESHI3Ba1kWs3fKixcaJUl1YyeBm7Ocq+yLItUiVBGnXxenSHJolIKEcwHq6ikbOX1YGVzQCTN8LPmSLreghUl9sN4Uw7yajMrLC0TZ1ImzqY6FEop0+pIaEN5HaoOxVuwEqFyc4I46uSlzOLqgxlh6UaR9l3VYWl9Fdoxb1Q90KJtu41pwwFW/WHhTtW8i7TafLCqRsk6bsGw63L9qurXRmuIlbT9lDQnlXU+nBFW1Q2qnZbDprWa2tjR90LZFqx1/+Td/HpGWLlrLDvIwTcx6dQ1Vrntbig68cDms3JwbA5Y1azs1ger6sNV/bbIw1jU81MvNAGrl58RVn8ozW+btF08iGFoAlYvP3csfVur1gJBEIA1uBmue5dhZDOyO2epbmgCVi8/I6x0MMHH9pjsTfBhNzQBq5uPZoQlB0uH3DZG4EZqQ26fL3sZq5uf09Ih6qw3i/pm6BZO0qZX7rrUS68Xsbr5ZE4rePMk08pk9aUZugfqppvs6AM1Acvlo/StP+6EbW06z8hJqxbYp2BZPQUnFsLsKuhQdaHqn5ewbF7KXIn0jWO5MqOQ7RaNLPtbNMmmhimj0GUmYLl8Gs0Lq4wyPbTu1l2QKqHSouzs3OlDIslW5SQsnY/NXmFplyNvEuuLV/Tau9BzwiraDUSwXmysztYWWNtL1psXeumgIrDGaqXvBfUuvtqUYI3V2t1wk1e2msFluJJm6zDJXv/fIfjPP7DAAgsssCiwwAILLLDAosACCyywwAKLAgsssMACC6zt9fDz/v75tyOB+98PD2+ORgKffjw4OP1uJPDxl+Xy8v1I4MPF3t7VNyOB4/vF4uzdzrG+39f1kz/w66Guv/yBvw90KX/gZKkr8Qf+2dOV+gNHC12/7RxrabD2/a31bLAO/a11YbAO/K21MFhLf2s9Gqw9f2vdGqzFu11jnVusE2/gxmI9eQOnFuvYG7i0WH7uK4t15w2cWazrXWP9a7H8f/bQYvm/6IPF+sF/pVssf19Ii/WH/0K2WH/uGuvEWC39gSdj9Twy+Rqri5EZx1gt/IE7Y/XoD1wbq9vd3w1PlufnD2OBp+ebm/uxwPHF6emnscDR4vLy41jg7vHq6sNY4Pr27OyYdRaLUrDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssMCiwAILLLDAAosCCyywwAILLAossMACCyywKLDAAgsssL6u+k+AAQCR9eHtLKvLfwAAAABJRU5ErkJggg==" data-original="/medias/featureimages/17.jpg" class="responsive-img" alt="js">
+                        
+                        <span class="card-title">js</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-12-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Markdown/" class="post-category">
+                                    Markdown
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Typora/">
+                        <span class="chip bg-color">Typora</span>
+                    </a>
+                    
+                    <a href="/tags/Markdown/">
+                        <span class="chip bg-color">Markdown</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2021</span>
+            
+            <span id="year">2019</span>
+            <a href="/about" target="_blank">yellow huang</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/hc135985" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="https://www.yuque.com/huangchao-zyls5/ac1t1w" class="tooltipped" target="_blank" data-tooltip="访问我的语雀" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">语</i>
+    </a>
+
+
+
+    <a href="mailto:547555134@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=547555143" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 547555143" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+    <script type="text/javascript"
+        color="122 103 238" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+    </script>
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+    <script type="text/javascript" src="/js/fireworks.js"></script>
+    <script type="text/javascript">
+        //只在桌面版网页启用特效
+        var windowWidth = $(window).width();
+        if (windowWidth > 768) {
+            document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+        }
+        </script>
+        
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["DaoVoiceObject"] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            a.charset = "utf-8";
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", ('https:' == document.location.protocol ? 'https:' : 'http:') +
+            "//widget.daovoice.io/widget/6984b559.js", "daovoice")
+        daovoice('init', {
+            app_id: "0777aa81"
+        });
+        daovoice('update');
+    </script>
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        const hasAttr = (e,a) => a.some(_=> e.attr(_)!==undefined);
+        $('a').each(function() {
+          const $this = $(this);
+          if(hasAttr($this,["data-fancybox","ignore-external-link"])) return;
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'your_domain' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script><script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(n){n.imageLazyLoadSetting.processImages=i;var e=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function i(){e&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,a=0;a<r.length;a++)0<=(t=(t=r[a]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}i(),n.addEventListener("scroll",function(){var t,e;t=i,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>

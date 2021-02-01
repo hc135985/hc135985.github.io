@@ -172,4 +172,31 @@
     
   </entry>
   
+  <entry>
+    <title>利用contenteditable属性实现@人和文档跳转</title>
+    <link href="http://hc135985.github.io/yellowchao/cb94.html"/>
+    <id>http://hc135985.github.io/yellowchao/cb94.html</id>
+    <published>2020-12-07T01:25:00.000Z</published>
+    <updated>2021-02-01T15:27:32.230Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;实现群聊天-人和文档&quot;&gt;&lt;a href=&quot;#实现群聊天-人和文档&quot; class=&quot;headerlink&quot; title=&quot;实现群聊天@人和文档&quot;&gt;&lt;/a&gt;实现群聊天@人和文档&lt;/h1&gt;&lt;h4 id=&quot;第一步：-创建模板&quot;&gt;&lt;a href=&quot;#第一步：-创建模板&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Markdown" scheme="http://hc135985.github.io/categories/Markdown/"/>
+    
+    
+    <category term="Typora" scheme="http://hc135985.github.io/tags/Typora/"/>
+    
+    <category term="Markdown" scheme="http://hc135985.github.io/tags/Markdown/"/>
+    
+  </entry>
+  
 </feed>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>call、apply、bind 使用&区别&实现 | 啊对对对</title>
+    <meta name="description" content="描述个der">
+    <link rel="stylesheet" href="/assets/style.019f39fc.css">
+    <link rel="modulepreload" href="/assets/Home.077da6fb.js">
+    <link rel="modulepreload" href="/assets/app.85083c31.js">
+    <link rel="modulepreload" href="/assets/pages_call_aplly_bind.md.c7b8aa11.lean.js">
+    
+    <meta name="twitter:title" content="call、apply、bind 使用&amp;区别&amp;实现 | 啊对对对">
+  <meta property="og:title" content="call、apply、bind 使用&amp;区别&amp;实现 | 啊对对对">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-675d8756><div class="sidebar-button" data-v-675d8756><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/" aria-label="啊对对对, back to home" data-v-675d8756 data-v-4a583abe><!----> 啊对对对</a><div class="flex-grow" data-v-675d8756></div><div class="nav" data-v-675d8756><nav class="nav-links" data-v-675d8756 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/" data-v-b8818f8c>首页 <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/pages/about" data-v-b8818f8c>关于 <!----></a></div></div><!--]--><!----><!----></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-83e92a68><nav class="nav-links nav" data-v-83e92a68 data-v-eab3edfe><!--[--><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/" data-v-b8818f8c>首页 <!----></a></div></div><div class="item" data-v-eab3edfe><div class="nav-link" data-v-eab3edfe data-v-b8818f8c><a class="item" href="/pages/about" data-v-b8818f8c>关于 <!----></a></div></div><!--]--><!----><!----></nav><!--[--><!--]--><ul class="sidebar-links" data-v-83e92a68><!--[--><li class="sidebar-link"><a class="sidebar-link-item" href="/pages/react-key">react-key</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="/pages/upload">upload</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item active" href="/pages/call_aplly_bind">call_aplly_bind</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#this">this</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#js-为什么会设计成这样呢？">JS 为什么会设计成这样呢？</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#为什么修改this？">为什么修改this？</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#三者区别">三者区别</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#call">call</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#call的使用">call的使用</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#call的实现">call的实现</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="#apply">apply</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#apply的使用">apply的使用</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#apply的实现">apply的实现</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#bind">bind</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#bind的使用">bind的使用</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#bind-方法的实现">bind 方法的实现</a><!----></li></ul></li></ul></li><!--]--></ul><!--[--><!--]--></aside><div class="sidebar-mask"></div><main class="page" data-v-7eddb2c4><div class="container" data-v-7eddb2c4><!--[--><!--]--><div style="position:relative;" class="content" data-v-7eddb2c4><div><h1 id="call、apply、bind-使用-区别-实现" tabindex="-1">call、apply、bind 使用&amp;区别&amp;实现 <a class="header-anchor" href="#call、apply、bind-使用-区别-实现" aria-hidden="true">#</a></h1><p>this代表函数（方法）执行的上下文环境，但在 JavaScript 中 this 不是固定不变的，它会随着执行环境的改变而改变。 JavaScript 提供了call、apply、bind这三个方法，来切换/固定this的指向。</p><h2 id="this" tabindex="-1">this <a class="header-anchor" href="#this" aria-hidden="true">#</a></h2><p>因为允许 this 出现在独立函数里，基本属于 JavaScript 的独创 作为对比，我们来看看最常见的几门「经典」语言是怎么做的：</p><ul><li>C 语言支持独立的函数，没有 this。</li><li>Java 不支持独立的函数，this 只能出现在 class 方法里。</li><li>C++ 支持独立的函数，但 this 只能出现在 class 方法里。</li><li>Python 支持独立的函数，但 self 只能出现在 class 方法里。</li><li>PHP 支持独立的函数，但 $this 只能出现在 class 方法里。</li></ul><h3 id="js-为什么会设计成这样呢？" tabindex="-1">JS 为什么会设计成这样呢？ <a class="header-anchor" href="#js-为什么会设计成这样呢？" aria-hidden="true">#</a></h3><p>1995 年，Netscape 在实现最早的 JavaScript 时，其内部的需求是这样的：</p><div class="language-md"><pre><code>这种 Java 的辅助语言必须「看起来像 Java」，保持易用性并「基于对象」，而不是像 Java 这样基于类。
+所有人都认可 Mocha（最早的 JS 引擎）将会「基于对象」但没有类。因为支持类将花费很长时间，
+并有与 Java 竞争的风险。
+</code></pre></div><div class="language-md"><pre><code>每个函数都有一个隐式的 this 形参。将函数作为方法调用时，这个参数会被设置为用于访问该方法的对象。
+这和大多数面向对象语言中的 this（或 self）含义相同。但是 JavaScript 在「关联到对象的方法」
+与「独立函数」这两者之间，使用了单一的定义形式。这使 this 导致了许多程序员的困惑和 bug。
+——《JavaScript 20 年》第一部分
+</code></pre></div><ol><li>在方法中，this 表示该方法所属的对象。</li><li>如果单独使用，this 表示全局对象。</li><li>在函数中，this 表示全局对象。</li><li>在函数中，在严格模式下，this 是未定义的(undefined)。</li><li>在事件中，this 表示接收事件的元素。</li><li>类似 call() 和 apply() 方法可以将 this 引用到任何对象。</li></ol><p>-this指向的是执行环境，执行环境不同指向不同</p><h3 id="为什么修改this？" tabindex="-1">为什么修改this？ <a class="header-anchor" href="#为什么修改this？" aria-hidden="true">#</a></h3><p>上面也说到执行环境不同this不同，也就是这个this时动态的，比如:</p><div class="language-js"><pre><code><span class="token keyword">var</span> name<span class="token operator">=</span><span class="token string">&quot;lucy&quot;</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj<span class="token operator">=</span><span class="token punctuation">{</span>
+ name<span class="token operator">:</span><span class="token string">&quot;martin&quot;</span><span class="token punctuation">,</span>
+ <span class="token function-variable function">say</span><span class="token operator">:</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span><span class="token function">say</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//martin，this指向obj对象</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span>obj<span class="token punctuation">.</span>say<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//lucy，this指向window对象</span>
+</code></pre></div><p>正常情况下 say 方法中的 this 是指向调用它的 obj 对象的，而定时器 setTimeout 中的 say 方法中的 this 是指向window对象的(在浏览器中)，这是因为 say 方法在定时器中是作为回调函数来执行的，因此回到主栈执行时是在全局执行上下文的环境中执行的，但我们需要的是 say 方法中 this 指向obj对象，因此我们需要修改 this 的指向。</p><p>箭头函数： 实际上箭头函数里并没有 this，如果你在箭头函数里看到 this，你直接把它当作箭头函数外面的 this 即可。外面的 this 是什么，箭头函数里面的 this 就还是什么，因为箭头函数本身不支持 this。</p><h2 id="三者区别" tabindex="-1">三者区别 <a class="header-anchor" href="#三者区别" aria-hidden="true">#</a></h2><ol><li>三者都可以改变函数的this对象指向。</li><li>三者第一个参数都是this要指向的对象，如果如果没有这个参数或参数为undefined或null，则默认指向全局window。</li><li>三者都可以传参，但是apply是数组，而call是参数列表，且apply和call是一次性传入参数，而bind可以分为多次传入。</li><li>bind 是返回绑定this之后的函数，便于稍后调用；apply 、call 则是立即执行 。</li></ol><h2 id="call" tabindex="-1">call <a class="header-anchor" href="#call" aria-hidden="true">#</a></h2><p>call() 方法是预定义的 JavaScript 方法。 它可以用来调用所有者对象作为参数的方法。 通过 call()，您能够使用属于另一个对象的方法。</p><p>call() 方法使用一个指定的 this 值和单独给出的一个或多个参数来调用一个函数</p><h3 id="call的使用" tabindex="-1">call的使用 <a class="header-anchor" href="#call的使用" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token keyword">function</span> <span class="token function">Product</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ <span class="token keyword">this</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Food</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token comment">// 调用Product的call方法并将当前作用域对象this传入替换掉Product内部的this作用域对象</span>
+ <span class="token function">Product</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> name<span class="token punctuation">,</span> price<span class="token punctuation">)</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>category <span class="token operator">=</span> <span class="token string">&#39;food&#39;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> tempFood <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Food</span><span class="token punctuation">(</span><span class="token string">&#39;cheese&#39;</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;输出：&#39;</span> <span class="token operator">+</span> tempFood<span class="token punctuation">.</span>name<span class="token punctuation">,</span> tempFood<span class="token punctuation">.</span>price<span class="token punctuation">,</span> tempFood<span class="token punctuation">.</span>category<span class="token punctuation">)</span>
+<span class="token comment">// 输出：cheese 5 food</span>
+</code></pre></div><p>这是一个简单使用 call 来实现的继承操作，在上面我们可以看到 Food 这个构造函数它自身并没有定义 name 和 price 这两个属性，重点就在 Product.call(this, name, price) 这一行代码上面，调用 Product 的 call （调用 call 方法会调用一遍自身）方法并将当前作用域对象 this 传入替换掉 Product 内部的 this 作用域对象，都知道当对象作为参数的时候都是地址传递，对任何一个引用修改都会修改到源对象，所以这里最终 new 出来的对象就有了 name 和 price 属性。</p><h3 id="call的实现" tabindex="-1">call的实现 <a class="header-anchor" href="#call的实现" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token keyword">var</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> <span class="token function-variable function">fn</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span>fn <span class="token operator">=</span> fn<span class="token punctuation">;</span>
+obj<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token comment">// {fn: Function, a: 1}</span>
+</code></pre></div><p>fn的定义时候的作用域时window对象，当我们绑定到obj对象上的时候，作用域就被替换了，这和call的中心思想及其相似，当执行一个方法的时候希望将作用域替换到另一个对象上。</p><p>具体实现：</p><div class="language-js"><pre><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">imitateCall</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 赋值作用域参数，如果没有则默认为 window，即访问全局作用域对象</span>
+  context <span class="token operator">=</span> context <span class="token operator">||</span> window    
+  <span class="token comment">// 绑定调用函数（.call之前的方法即this，前面提到过调用call方法会调用一遍自身，所以这里要存下来）</span>
+  context<span class="token punctuation">.</span>invokFn <span class="token operator">=</span> <span class="token keyword">this</span>    
+  <span class="token comment">// 截取作用域对象参数后面的参数</span>
+  <span class="token keyword">let</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token comment">// 执行调用函数，记录拿取返回值</span>
+  <span class="token keyword">let</span> result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">invokFn</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span>
+  <span class="token comment">// 销毁调用函数，以免作用域污染</span>
+  Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token string">&#39;invokFn&#39;</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="apply" tabindex="-1">apply <a class="header-anchor" href="#apply" aria-hidden="true">#</a></h2><p>apply 和 call 的功能完全一致，区别唯有使用上的一丝丝差别</p><h2 id="apply的使用" tabindex="-1">apply的使用 <a class="header-anchor" href="#apply的使用" aria-hidden="true">#</a></h2><div class="language-js"><pre><code><span class="token keyword">function</span> <span class="token function">Product</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name
+ <span class="token keyword">this</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">Food</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+ <span class="token comment">// 调用Product的call方法并将当前作用域对象this传入替换掉Product内部的this作用域对象</span>
+ <span class="token function">Product</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>name<span class="token punctuation">,</span> price<span class="token punctuation">]</span><span class="token punctuation">)</span>
+ <span class="token keyword">this</span><span class="token punctuation">.</span>category <span class="token operator">=</span> <span class="token string">&#39;food&#39;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> tempFood <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Food</span><span class="token punctuation">(</span><span class="token string">&#39;cheese&#39;</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">&#39;输出：&#39;</span> <span class="token operator">+</span> tempFood<span class="token punctuation">.</span>name<span class="token punctuation">,</span> tempFood<span class="token punctuation">.</span>price<span class="token punctuation">,</span> tempFood<span class="token punctuation">.</span>category<span class="token punctuation">)</span>
+<span class="token comment">// 输出：cheese 5 food</span>
+</code></pre></div><h2 id="apply的实现" tabindex="-1">apply的实现 <a class="header-anchor" href="#apply的实现" aria-hidden="true">#</a></h2><p>apply和call唯有参数不同而已，修改一下之前call的入参处理就可以了</p><div class="language-js"><pre><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">imitateApply</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 赋值作用域参数，如果没有则默认为 window，即访问全局作用域对象</span>
+    context <span class="token operator">=</span> context <span class="token operator">||</span> window
+    <span class="token comment">// 绑定调用函数（.call之前的方法即this，前面提到过调用call方法会调用一遍自身，所以这里要存下来）</span>
+    context<span class="token punctuation">.</span>invokFn <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token comment">// 执行调用函数，需要对是否有参数做判断，记录拿取返回值</span>
+    <span class="token keyword">let</span> result
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>arguments<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">invokFn</span><span class="token punctuation">(</span><span class="token operator">...</span>arguments<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        result <span class="token operator">=</span> context<span class="token punctuation">.</span><span class="token function">invokFn</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">// 销毁调用函数，以免作用域污染</span>
+    Reflect<span class="token punctuation">.</span><span class="token function">deleteProperty</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> <span class="token string">&#39;invokFn&#39;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> result
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="bind" tabindex="-1">bind <a class="header-anchor" href="#bind" aria-hidden="true">#</a></h2><p>bind()方法会创建一个新函数，称为绑定函数，当调用这个绑定函数时，绑定函数会以创建它时传入 bind()方法的第一个参数作　为 this，传入 bind() 方法的第二个以及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数。</p><h3 id="bind的使用" tabindex="-1">bind的使用 <a class="header-anchor" href="#bind的使用" aria-hidden="true">#</a></h3><p>bind方法和call很相似，第一参数也是this的指向，后面传入的也是一个参数列表(但是这个参数列表可以分多次传入，call则必须一次性传入所有参数)，但是它改变this指向后不会立即执行，而是返回一个永久改变this指向的函数。</p><p><b>示例：</b></p><div class="language-js"><pre><code><span class="token keyword">var</span> arr<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">12</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> max<span class="token operator">=</span>Math<span class="token punctuation">.</span><span class="token function">max</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">max</span><span class="token punctuation">(</span>arr<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//12，分两次传参</span>
+</code></pre></div><p>可以看出，bind方法可以分多次传参，最后函数运行时会把所有参数连接起来一起放入函数运行。</p><h3 id="bind-方法的实现" tabindex="-1">bind 方法的实现 <a class="header-anchor" href="#bind-方法的实现" aria-hidden="true">#</a></h3><div class="language-js"><pre><code><span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">imitateBind</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">context</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 获取绑定时的传参</span>
+<span class="token keyword">let</span> args <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token comment">// 定义中转构造函数，用于通过原型连接绑定后的函数和调用bind的函数</span>
+      <span class="token function-variable function">F</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment">// 记录调用函数，生成闭包，用于返回函数被调用时执行</span>
+      self <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">,</span>
+      <span class="token comment">// 定义返回(绑定)函数</span>
+      <span class="token function-variable function">bound</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token comment">// 合并参数，绑定时和调用时分别传入的</span>
+          <span class="token keyword">let</span> finalArgs <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token operator">...</span>args<span class="token punctuation">,</span> <span class="token operator">...</span>arguments<span class="token punctuation">]</span>
+          
+          <span class="token comment">// 改变作用域，注:aplly/call是立即执行函数，即绑定会直接调用</span>
+          <span class="token comment">// 这里之所以要使用instanceof做判断，是要区分是不是new xxx()调用的bind方法</span>
+          <span class="token keyword">return</span> <span class="token function">self</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">this</span> <span class="token keyword">instanceof</span> <span class="token class-name">F</span> <span class="token operator">?</span> <span class="token keyword">this</span> <span class="token operator">:</span> context<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token operator">...</span>finalArgs<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+  
+  <span class="token comment">// 将调用函数的原型赋值到中转函数的原型上</span>
+  <span class="token class-name">F</span><span class="token punctuation">.</span>prototype <span class="token operator">=</span> self<span class="token punctuation">.</span>prototype
+  <span class="token comment">// 通过原型的方式继承调用函数的原型</span>
+  bound<span class="token punctuation">.</span>prototype <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">F</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  
+  <span class="token keyword">return</span> bound
+<span class="token punctuation">}</span>
+</code></pre></div><p>一次看到个有趣的问题是如果多次 bind 呢，会有什么效果？</p><div class="language-js"><pre><code><span class="token keyword">const</span> people1 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token operator">:</span> <span class="token number">18</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> people2 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token operator">:</span> <span class="token number">19</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> people3 <span class="token operator">=</span> <span class="token punctuation">{</span>
+    age<span class="token operator">:</span> <span class="token number">20</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> girl <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">getAge</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>age
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> callFn <span class="token operator">=</span> girl<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>people1<span class="token punctuation">)</span>
+<span class="token keyword">const</span> callFn1 <span class="token operator">=</span> girl<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>people1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>people2<span class="token punctuation">)</span>
+<span class="token keyword">const</span> callFn2 <span class="token operator">=</span> girl<span class="token punctuation">.</span><span class="token function">getAge</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>people1<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>people2<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>people3<span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">callFn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">callFn1</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">callFn2</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>callFn<span class="token punctuation">,</span> callFn1<span class="token punctuation">,</span> callFn2<span class="token punctuation">)</span>
+<span class="token comment">// [Function: bound getAge] [Function: bound bound getAge] [Function: bound bound bound getAge]</span>
+</code></pre></div><p>bind() 的实现，相当于使用函数在内部包了一个 call / apply ，第二次 bind() 相当于再包住第一次 bind() ，故第二次及以后的 bind 是无法生效的</p><div class="language-js"><pre><code><span class="token keyword">const</span> <span class="token function-variable function">tempFn</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token operator">...</span>arguments<span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> cont1 <span class="token operator">=</span> <span class="token function">tempFn</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        name<span class="token operator">:</span> <span class="token string">&#39;渣渣逆天&#39;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+
+<span class="token function">cont1</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        age<span class="token operator">:</span> <span class="token number">24</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token comment">// {name: &quot;渣渣逆天&quot;}  [1]</span>
+
+<span class="token keyword">const</span> cont2 <span class="token operator">=</span> <span class="token function">cont1</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        apper<span class="token operator">:</span> <span class="token string">&#39;bueaty&#39;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span>
+
+<span class="token function">cont2</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// {name: &quot;渣渣逆天&quot;}  [1, 2]</span>
+
+<span class="token keyword">const</span> cont3 <span class="token operator">=</span> <span class="token function">cont2</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+		fat<span class="token operator">:</span> <span class="token string">&#39;thin&#39;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+
+<span class="token function">cont3</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment">// {name: &quot;渣渣逆天&quot;}  [1, 2, 3]</span>
+</code></pre></div><p>从上面的代码执行结果中我们发现一点，第一次 bind 绑定的对象是固定的，也就是后面通过 bind 或者 call 再次绑定的时候，就无法修改这个 this 了，从 ES5 文档中我们能找到答案</p><div class="language-md"><pre><code>When the [[Call]] internal method of a function object, F, which was created using the bind function is called with a this value and a list of arguments ExtraArgs, the following steps are taken:
+
+Let boundArgs be the value of F’s [[BoundArgs]] internal property.
+Let boundThis be the value of F’s [[BoundThis]] internal property.
+Let target be the value of F’s [[TargetFunction]] internal property.
+Let args be a new list containing the same values as the list boundArgs in the same order followed by the same values as the list ExtraArgs in the same order.
+Return the result of calling the [[Call]] internal method of target providing boundThis as the this value and providing args as the arguments.
+</code></pre></div><p>从 ES5 的 bind 函数说明中我们知道，当我们用一个函数调用 bind 的时候，返回的函数中会保存这三个参数。所以最后调用 call 的时候执行的函数是目标函数，也就是调用了 bind 的函数，传入的 this 也是 bind 调用时传入的，这些都是无法被修改的了，但是参数是调用 bind 和 call 时的叠加，这是我们唯一可以修改的地方。执行两次 bind 的原理可以参考 bind 的源码，和 call 的差不多，也是目标函数和 this 是被固定的了，只有参数列表会叠加</p></div></div><footer class="page-footer" data-v-7eddb2c4 data-v-fb8d84c6><div class="edit" data-v-fb8d84c6><div class="edit-link" data-v-fb8d84c6 data-v-1ed99556><!----></div></div><div class="updated" data-v-fb8d84c6><!----></div></footer><div class="next-and-prev-link" data-v-7eddb2c4 data-v-38ede35f><div class="container" data-v-38ede35f><div class="prev" data-v-38ede35f><a class="link" href="/pages/upload" data-v-38ede35f><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-prev" data-v-38ede35f><path d="M19,11H7.4l5.3-5.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-7,7c-0.1,0.1-0.2,0.2-0.2,0.3c-0.1,0.2-0.1,0.5,0,0.8c0.1,0.1,0.1,0.2,0.2,0.3l7,7c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L7.4,13H19c0.6,0,1-0.4,1-1S19.6,11,19,11z"></path></svg><span class="text" data-v-38ede35f>upload</span></a></div><div class="next" data-v-38ede35f><!----></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"index.md\":\"834050ef\",\"pages_about.md\":\"f85345e1\",\"pages_call_aplly_bind.md\":\"c7b8aa11\",\"pages_react-key.md\":\"5ea5cf32\",\"pages_upload.md\":\"cd79d62c\"}")</script>
+    <script type="module" async src="/assets/app.85083c31.js"></script>
+    
+  </body>
+</html>

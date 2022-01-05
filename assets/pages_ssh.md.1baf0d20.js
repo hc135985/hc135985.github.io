@@ -1,0 +1,6 @@
+import{_ as e,c as t,o,a as s,b as n}from"./app.58b68d53.js";const $='{"title":"\u4FDD\u6301\u8DF3\u677F\u673Asession\u8FDE\u63A5, \u4E0D\u7528\u53CD\u590D\u8F93\u5165\u5BC6\u7801","description":"","frontmatter":{},"relativePath":"pages/ssh.md","lastUpdated":1641382215460}',a={},r=s("h1",{id:"\u4FDD\u6301\u8DF3\u677F\u673Asession\u8FDE\u63A5-\u4E0D\u7528\u53CD\u590D\u8F93\u5165\u5BC6\u7801",tabindex:"-1"},[n("\u4FDD\u6301\u8DF3\u677F\u673Asession\u8FDE\u63A5, \u4E0D\u7528\u53CD\u590D\u8F93\u5165\u5BC6\u7801 "),s("a",{class:"header-anchor",href:"#\u4FDD\u6301\u8DF3\u677F\u673Asession\u8FDE\u63A5-\u4E0D\u7528\u53CD\u590D\u8F93\u5165\u5BC6\u7801","aria-hidden":"true"},"#")],-1),c=s("p",null,"1.\u8FDB\u5165~/.ssh\u76EE\u5F55 2.\u521B\u5EFAconfig\u6587\u4EF6",-1),i=s("div",{class:"language-md"},[s("pre",null,[s("code",null,`vi config
+`)])],-1),d=s("p",null,"3.\u6DFB\u52A0config\u6587\u4EF6\u5185\u5BB9,\u5E76\u4FDD\u5B58",-1),l=s("div",{class:"language-md"},[s("pre",null,[s("code",null,`Host *
+ControlMaster auto
+ControlPath ~/.ssh/ssh-%r@%h 
+ControlPersist 24h
+`)])],-1),_=[r,c,i,d,l];function h(p,u,f,g,m,v){return o(),t("div",null,_)}var b=e(a,[["render",h]]);export{$ as __pageData,b as default};
